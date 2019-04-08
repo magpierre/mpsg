@@ -47,25 +47,6 @@ func (c *Completer) Complete(d prompt.Document) []prompt.Suggest {
 	return argumentCompleter(args)
 }
 
-var commands2 = []prompt.Suggest{
-	{Text: "create", Description: "Create asset"},
-	{Text: "info", Description: "Show asset"},
-	{Text: "modify", Description: "Modify asset"},
-	{Text: "remove", Description: "Remove asset"},
-}
-
-func getPreviousOption(d prompt.Document) (cmd, option string, found bool) {
-	args := strings.Split(d.TextBeforeCursor(), " ")
-	l := len(args)
-	if l >= 2 {
-		option = args[l-2]
-	}
-	if strings.HasPrefix(option, "-") {
-		return args[0], option, true
-	}
-	return "", "", false
-}
-
 func remainingOptions(args []string, options []prompt.Suggest) []prompt.Suggest {
 
 	if len(args) > 2 {
