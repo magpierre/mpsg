@@ -15,3 +15,5 @@ Streams
 Table
 Volume
 
+
+![Alt text](example/example.gif?raw=true "Statement Generator")
